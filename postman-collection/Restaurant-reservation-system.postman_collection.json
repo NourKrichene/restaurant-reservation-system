@@ -1,0 +1,679 @@
+{
+	"info": {
+		"_postman_id": "9e269e86-bd7a-4290-af6b-6b27810e3534",
+		"name": "Restaurant-reservation-system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9893522"
+	},
+	"item": [
+		{
+			"name": "gateway",
+			"item": [
+				{
+					"name": "restaurants",
+					"item": [
+						{
+							"name": "Add restaurant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/restaurants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get restaurant by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"team1\": \"Burnley\",\r\n  \"team2\": \"Manchester City\",\r\n  \"stadium\": \"Anfield\",\r\n  \"date\": \"2025-03-14\",\r\n  \"time\": \"20:45\",\r\n  \"description\": \"Premier League Game Week 13\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/restaurants/89018cb1-6eaa-4fbb-922b-e6a53f95282c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										"89018cb1-6eaa-4fbb-922b-e6a53f95282c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get restaurants",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/restaurants?page=0&size=10&sort=name,asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"restaurants"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "name,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit restaurant",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/restaurants/89018cb1-6eaa-4fbb-922b-e6a53f95282c",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										"89018cb1-6eaa-4fbb-922b-e6a53f95282c"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete restaurant by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/restaurants/89018cb1-6eaa-4fbb-922b-e6a53f95282",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"restaurants",
+										"89018cb1-6eaa-4fbb-922b-e6a53f95282"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "reservations",
+					"item": [
+						{
+							"name": "Add reservation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerEmail\": \"customer1@email.com\",\r\n    \"customerPhoneNumber\": \"+33612345678\",\r\n    \"reservationDetails\": {\r\n        \"startTime\": \"2025-12-29T13:00:00\",\r\n        \"endTime\": \"2025-12-29T14:00:00\",\r\n        \"numberOfGuests\": 6\r\n    },\r\n    \"status\": \"CREATED\",\r\n    \"restaurantId\": \"89018cb1-6eaa-4fbb-922b-e6a53f95282c\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/v1/reservations",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"reservations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get reservation by id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/reservations/019b69d6-3b5f-73f7-87fe-a4852d193451",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"reservations",
+										"019b69d6-3b5f-73f7-87fe-a4852d193451"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit reservation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/reservations/019b69d6-3b5f-73f7-87fe-a4852d193451",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"reservations",
+										"019b69d6-3b5f-73f7-87fe-a4852d193451"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get reservations by customer email or phone number",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{authToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/reservations?email=ustomer1@email.com&phone=+33612345678",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"reservations"
+									],
+									"query": [
+										{
+											"key": "email",
+											"value": "ustomer1@email.com"
+										},
+										{
+											"key": "phone",
+											"value": "+33612345678"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Generate token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.token;\r",
+									"\r",
+									"pm.environment.set(\"authToken\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth/token?username=user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "restaurant-manager-service",
+			"item": [
+				{
+					"name": "Add restaurant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/restaurants",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get restaurant by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"team1\": \"Burnley\",\r\n  \"team2\": \"Manchester City\",\r\n  \"stadium\": \"Anfield\",\r\n  \"date\": \"2025-03-14\",\r\n  \"time\": \"20:45\",\r\n  \"description\": \"Premier League Game Week 13\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/restaurants/33dff704-d375-4ed8-b76c-eaa969592d77",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								"33dff704-d375-4ed8-b76c-eaa969592d77"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/restaurants?page=0&size=10&sort=name,asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"restaurants"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "name,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/restaurants/89018cb1-6eaa-4fbb-922b-e6a53f95282c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								"89018cb1-6eaa-4fbb-922b-e6a53f95282c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete restaurant by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La Storia Di Italia\",\r\n  \"description\": \"Authentic Italian Food\",\r\n  \"capacity\": 50,\r\n  \"workingTimes\": [\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"MONDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"TUESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"WEDNESDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"THURSDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"22:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"14:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"FRIDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"12:00:00\",\r\n      \"closeTime\": \"15:00:00\"\r\n    },\r\n    {\r\n      \"dayOfWeek\": \"SATURDAY\",\r\n      \"openTime\": \"19:00:00\",\r\n      \"closeTime\": \"23:30:00\"\r\n    }\r\n  ],\r\n\"exceptionalClosingTimes\": [\r\n  {\r\n    \"startTime\": \"2025-12-24T00:00:00\",\r\n    \"endTime\": \"2025-12-26T23:59:59\",\r\n    \"reason\": \"Closed for Christmas\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-12-31T14:00:00\",\r\n    \"endTime\": \"2026-01-01T23:59:59\",\r\n    \"reason\": \"Closed for New Year\"\r\n  },\r\n  {\r\n    \"startTime\": \"2025-08-01T00:00:00\",\r\n    \"endTime\": \"2025-08-31T23:59:59\",\r\n    \"reason\": \"Annual leave\"\r\n  }\r\n]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/restaurants/89018cb1-6eaa-4fbb-922b-e6a53f95282",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"restaurants",
+								"89018cb1-6eaa-4fbb-922b-e6a53f95282"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reservation-manager-service",
+			"item": [
+				{
+					"name": "Add reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerEmail\": \"customer1@email.com\",\r\n    \"customerPhoneNumber\": \"+33612345678\",\r\n    \"reservationDetails\": {\r\n        \"startTime\": \"2025-12-29T13:00:00\",\r\n        \"endTime\": \"2025-12-29T14:00:00\",\r\n        \"numberOfGuests\": 6\r\n    },\r\n    \"status\": \"CREATED\",\r\n    \"restaurantId\": \"89018cb1-6eaa-4fbb-922b-e6a53f95282c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/v1/reservations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"reservations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reservations by customer email or phone number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/reservations?email=ustomer1@email.com&phone=+33612345678",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"reservations"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ustomer1@email.com"
+								},
+								{
+									"key": "phone",
+									"value": "+33612345678"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reservation by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/reservations/019b69d6-3b5f-73f7-87fe-a4852d193451",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"reservations",
+								"019b69d6-3b5f-73f7-87fe-a4852d193451"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit reservation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/v1/reservations/019b69d6-3b5f-73f7-87fe-a4852d193451",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"v1",
+								"reservations",
+								"019b69d6-3b5f-73f7-87fe-a4852d193451"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

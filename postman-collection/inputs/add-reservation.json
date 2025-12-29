@@ -1,0 +1,11 @@
+{
+    "customerEmail": "customer1@email.com",
+    "customerPhoneNumber": "+33612345678",
+    "reservationDetails": {
+        "startTime": "2025-12-29T13:00:00",
+        "endTime": "2025-12-29T14:00:00",
+        "numberOfGuests": 6
+    },
+    "status": "CREATED",
+    "restaurantId": "89018cb1-6eaa-4fbb-922b-e6a53f95282c"
+}

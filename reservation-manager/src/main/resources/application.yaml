@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: reservation-manager
+  datasource:
+    url: jdbc:postgresql://localhost:5432/reservation_manager
+    username: user
+    password: password
+  flyway:
+      enabled: true
+server:
+  port: 8083
+
+restaurant:
+  service:
+    url: http://localhost:8080

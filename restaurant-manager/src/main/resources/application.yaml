@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: restaurant-manager
+  datasource:
+    url: jdbc:postgresql://localhost:5432/restaurant_manager
+    username: user
+    password: password
+  flyway:
+    enabled: true
+server:
+  port: 8081

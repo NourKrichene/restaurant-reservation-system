@@ -1,0 +1,85 @@
+{
+  "name": "La Storia Di Italia",
+  "description": "Authentic Italian Food",
+  "capacity": 50,
+  "workingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "openTime": "12:00:00",
+      "closeTime": "14:30:00"
+    },
+    {
+      "dayOfWeek": "MONDAY",
+      "openTime": "19:00:00",
+      "closeTime": "22:30:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "openTime": "12:00:00",
+      "closeTime": "14:30:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "openTime": "19:00:00",
+      "closeTime": "22:30:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "openTime": "12:00:00",
+      "closeTime": "14:30:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "openTime": "19:00:00",
+      "closeTime": "22:30:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "openTime": "12:00:00",
+      "closeTime": "14:30:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "openTime": "19:00:00",
+      "closeTime": "22:30:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "openTime": "12:00:00",
+      "closeTime": "14:30:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "openTime": "19:00:00",
+      "closeTime": "23:30:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "openTime": "12:00:00",
+      "closeTime": "15:00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "openTime": "19:00:00",
+      "closeTime": "23:30:00"
+    }
+  ],
+"exceptionalClosingTimes": [
+  {
+    "startTime": "2025-12-24T00:00:00",
+    "endTime": "2025-12-26T23:59:59",
+    "reason": "Closed for Christmas"
+  },
+  {
+    "startTime": "2025-12-31T14:00:00",
+    "endTime": "2026-01-01T23:59:59",
+    "reason": "Closed for New Year"
+  },
+  {
+    "startTime": "2025-08-01T00:00:00",
+    "endTime": "2025-08-31T23:59:59",
+    "reason": "Annual leave"
+  }
+]
+
+}

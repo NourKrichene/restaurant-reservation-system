@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: restaurant-manager
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/v1/restaurants/**
+            - id: reservation-manager
+              uri: http://localhost:8083
+              predicates:
+                - Path=/api/v1/reservations/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          secret-key: "very-secret-key-256-bits-gateway"
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+
